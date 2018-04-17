@@ -8,13 +8,16 @@ namespace WpfApplication1
 {
     class Wardrobe
     {
-        private List<ClothingItem> ward;
-
-        internal List<ClothingItem> Ward { get => ward; set => ward = value; }
+        private List<ClothingItem> shirts;
+        private List<ClothingItem> pants;
+        private List<ClothingItem> shoes;
+        
 
         public Wardrobe()
         {
-            ward = new List<ClothingItem>();
+            shirts = new List<ClothingItem>();
+            pants = new List<ClothingItem>();
+            shoes = new List<ClothingItem>();
         }
 
         public Wardrobe(String fileName)
@@ -22,9 +25,24 @@ namespace WpfApplication1
             //load from file
         }
 
+        internal List<ClothingItem> Shirts { get => shirts; }
+        internal List<ClothingItem> Pants { get => pants; }
+        internal List<ClothingItem> Shoes { get => shoes; }
+
         public void AddItem(ClothingItem newItem)
         {
-            ward.Add(newItem);
+            if (newItem.Category == ClothingCategory.Shirt)
+            {
+                shirts.Add(newItem);
+            }
+            else if (newItem.Category == ClothingCategory.Pants)
+            {
+                pants.Add(newItem);
+            }
+            else
+            {
+                shoes.Add(newItem);
+            }
         }
 
         public void StoreWardrobe(String filename)
