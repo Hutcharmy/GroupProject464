@@ -412,7 +412,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Wardrobe" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="82" Margin="-2,-2,-26,0">
-                <Grid>
+                <Grid Margin="0,0,-3,-2">
                     <Grid.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FF73A2AC" Offset="0"/>
@@ -424,7 +424,7 @@
                         <ColumnDefinition Width="703*"/>
                     </Grid.ColumnDefinitions>
                     <TextBox x:Name="articleName" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="44,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <ComboBox x:Name="articleType" Grid.Column="1" HorizontalAlignment="Left" Margin="299,38,0,0" VerticalAlignment="Top" Width="120">
+                    <ComboBox x:Name="articleType" Grid.Column="1" HorizontalAlignment="Left" Margin="249,38,0,0" VerticalAlignment="Top" Width="120">
                         <ListBoxItem Content="Dress Shirt"/>
                         <ListBoxItem Content="Button Down Shirt"/>
                         <ListBoxItem Content="Polo"/>
@@ -444,7 +444,7 @@
                         <ListBoxItem Content="Heels"/>
                         <ListBoxItem Content="Flats"/>
                     </ComboBox>
-                    <ComboBox x:Name="articleColor" Grid.Column="1" HorizontalAlignment="Left" Margin="543,38,0,0" VerticalAlignment="Top" Width="120">
+                    <ComboBox x:Name="articleColor" Grid.Column="1" HorizontalAlignment="Left" Margin="458,38,0,0" VerticalAlignment="Top" Width="120">
                         <ListBoxItem Content="Black"/>
                         <ListBoxItem Content="Brown"/>
                         <ListBoxItem Content="White"/>
@@ -459,15 +459,16 @@
                     <Label x:Name="label1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top" Width="100">
                         <Label x:Name="label2_Copy" Content="Article Name:"/>
                     </Label>
-                    <Label x:Name="label1_Copy" HorizontalAlignment="Left" Margin="219,29,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1">
+                    <Label x:Name="label1_Copy" HorizontalAlignment="Left" Margin="169,29,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1">
                         <Label x:Name="label2_Copy1" Content="Article Type:"/>
                     </Label>
-                    <Label x:Name="label1_Copy1" HorizontalAlignment="Left" Margin="454,29,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1">
+                    <Label x:Name="label1_Copy1" HorizontalAlignment="Left" Margin="374,29,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1">
                         <Label x:Name="label2_Copy2" Content="Article Color:"/>
                     </Label>
                     <ListBox x:Name="articleList" HorizontalAlignment="Left" Height="115" Margin="10,166,0,0" VerticalAlignment="Top" Width="734" Grid.ColumnSpan="2"/>
                     <Label x:Name="label2" Content="Current Wardrobe: " HorizontalAlignment="Center" Margin="10,135,624,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-                    <Button x:Name="saveArticle" Content="Save Article" Grid.Column="1" HorizontalAlignment="Left" Margin="299,88,0,0" VerticalAlignment="Top" Width="120" Height="32"/>
+                    <Button x:Name="saveArticle" Content="Save Article" Grid.Column="1" HorizontalAlignment="Left" Margin="603,33,0,0" VerticalAlignment="Top" Width="90" Height="32"/>
+                    <Button x:Name="printResult" Content="Get Result" HorizontalAlignment="Center" Margin="276,100,337,160" Width="93" Height="33" Grid.Column="1" VerticalAlignment="Center" Click="printResult_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Result" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54">

@@ -23,8 +23,10 @@ namespace WpfApplication1
         private ClothingCategory category;
         const int COUNT_SHIRTS = 6;
         const int COUNT_PANTS = 7;
+        public int useCnt = 0;
 
         public string Name { get => name; set => name = value; }
+        public int UseCnt { get => useCnt; set => useCnt = value; }
         public ClothingType Type { get => type; set => type = value; }
         public ClothingColor Color { get => color; set => color = value; }
         public ClothingCategory Category { get => category; set => category = value; }
