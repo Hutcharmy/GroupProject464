@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Creator.cs" />
     <Compile Include="Outfit.cs" />
     <Compile Include="Wardrobe.cs" />
     <Page Include="MainWindow.xaml">
