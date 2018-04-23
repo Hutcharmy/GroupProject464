@@ -1,0 +1,16 @@
+C:\Users\nick\Documents\GitHub\GroupProject464\WpfApplication1\OutfitCreatorTests\obj\Debug\OutfitCreatorTests.csprojResolveAssemblyReference.cache
+C:\Users\nick\Documents\GitHub\GroupProject464\WpfApplication1\OutfitCreatorTests\obj\Debug\OutfitCreatorTests.csproj.CoreCompileInputs.cache
+C:\Users\nick\Documents\GitHub\GroupProject464\WpfApplication1\OutfitCreatorTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\nick\Documents\GitHub\GroupProject464\WpfApplication1\OutfitCreatorTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\nick\Documents\GitHub\GroupProject464\WpfApplication1\OutfitCreatorTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\nick\Documents\GitHub\GroupProject464\WpfApplication1\OutfitCreatorTests\bin\Debug\OutfitCreatorTests.dll
+C:\Users\nick\Documents\GitHub\GroupProject464\WpfApplication1\OutfitCreatorTests\bin\Debug\OutfitCreatorTests.pdb
+C:\Users\nick\Documents\GitHub\GroupProject464\WpfApplication1\OutfitCreatorTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\nick\Documents\GitHub\GroupProject464\WpfApplication1\OutfitCreatorTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\nick\Documents\GitHub\GroupProject464\WpfApplication1\OutfitCreatorTests\bin\Debug\WpfApplication1.exe
+C:\Users\nick\Documents\GitHub\GroupProject464\WpfApplication1\OutfitCreatorTests\bin\Debug\WpfApplication1.pdb
+C:\Users\nick\Documents\GitHub\GroupProject464\WpfApplication1\OutfitCreatorTests\bin\Debug\WpfApplication1.exe.config
+C:\Users\nick\Documents\GitHub\GroupProject464\WpfApplication1\OutfitCreatorTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\nick\Documents\GitHub\GroupProject464\WpfApplication1\OutfitCreatorTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\nick\Documents\GitHub\GroupProject464\WpfApplication1\OutfitCreatorTests\obj\Debug\OutfitCreatorTests.dll
+C:\Users\nick\Documents\GitHub\GroupProject464\WpfApplication1\OutfitCreatorTests\obj\Debug\OutfitCreatorTests.pdb
