@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="775.787">
+        Title="MainWindow" Height="350" Width="775.787" Loaded="Window_Loaded">
     <Grid HorizontalAlignment="Left" Width="766">
         <TabControl x:Name="tabControl" Height="319" VerticalAlignment="Top" HorizontalAlignment="Left" Width="760" Background="White">
             <TabItem Header="Home" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54">
@@ -32,368 +32,74 @@
                         <ColumnDefinition Width="500*"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="10,45,0,0" Grid.ColumnSpan="2">
-                        <ComboBox x:Name="dayOneEventOne" SelectedIndex="3">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayOneEventTwo">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayOneEventThree">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
+                        <ComboBox x:Name="dayOneEventOne" SelectedIndex="3" />
+                        <ComboBox x:Name="dayOneEventTwo"/>
+                        <ComboBox x:Name="dayOneEventThree"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="104,45,0,0" Grid.Column="1">
-                        <ComboBox x:Name="dayTwoEventOne">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayTwoEventTwo">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayTwoEventThree">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
+                        <ComboBox x:Name="dayTwoEventOne"/>
+                        <ComboBox x:Name="dayTwoEventTwo"/>
+                        <ComboBox x:Name="dayTwoEventThree"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="209,45,0,0" Grid.Column="1">
-                        <ComboBox x:Name="dayThreeEventOne">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayThreeEventTwo">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayThreeEventThree">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
+                        <ComboBox x:Name="dayThreeEventOne"/>
+                        <ComboBox x:Name="dayThreeEventTwo"/>
+                        <ComboBox x:Name="dayThreeEventThree"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="314,45,0,0" Grid.Column="1">
-                        <ComboBox x:Name="dayFourEventOne">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayFourEventTwo">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayFourEventThree">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
+                        <ComboBox x:Name="dayFourEventOne"/>
+                        <ComboBox x:Name="dayFourEventTwo"/>
+                        <ComboBox x:Name="dayFourEventThree"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="10,181,0,0" Grid.ColumnSpan="2">
-                        <ComboBox x:Name="dayEightEventOne">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayEightEventTwo">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayEightEventThree">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
+                        <ComboBox x:Name="dayEightEventOne"/>
+                        <ComboBox x:Name="dayEightEventTwo"/>
+                        <ComboBox x:Name="dayEightEventThree"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="104,181,0,0" Grid.Column="1">
-                        <ComboBox x:Name="dayNineEventOne">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayNineEventTwo">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayNineEventThree">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
+                        <ComboBox x:Name="dayNineEventOne"/>
+                        <ComboBox x:Name="dayNineEventTwo"/>
+                        <ComboBox x:Name="dayNineEventThree"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="209,181,0,0" Grid.Column="1">
-                        <ComboBox x:Name="dayTenEventOne">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayTenEventTwo">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayTenEventThree">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
+                        <ComboBox x:Name="dayTenEventOne"/>
+                        <ComboBox x:Name="dayTenEventTwo"/>
+                        <ComboBox x:Name="dayTenEventThree"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="314,181,0,0" Grid.Column="1">
-                        <ComboBox x:Name="dayElevenEventOne">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayElevenEventTwo">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayElevenEventThree">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
+                        <ComboBox x:Name="dayElevenEventOne"/>
+                        <ComboBox x:Name="dayElevenEventTwo"/>
+                        <ComboBox x:Name="dayElevenEventThree"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="419,45,0,0" Grid.Column="1">
-                        <ComboBox x:Name="dayFiveEventOne">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayFiveEventTwo">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayFiveEventThree">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
+                        <ComboBox x:Name="dayFiveEventOne"/>
+                        <ComboBox x:Name="dayFiveEventTwo"/>
+                        <ComboBox x:Name="dayFiveEventThree"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="524,45,0,0" Grid.Column="1">
-                        <ComboBox x:Name="daySixEventOne">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="daySixEventTwo">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="daySixEventThree">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
+                        <ComboBox x:Name="daySixEventOne"/>
+                        <ComboBox x:Name="daySixEventTwo"/>
+                        <ComboBox x:Name="daySixEventThree"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="419,181,0,0" Grid.Column="1">
-                        <ComboBox x:Name="dayTwelveEventOne">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayTwelveEventTwo">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayTwelveEventThree">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
+                        <ComboBox x:Name="dayTwelveEventOne"/>
+                        <ComboBox x:Name="dayTwelveEventTwo"/>
+                        <ComboBox x:Name="dayTwelveEventThree"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="524,181,0,0" Grid.Column="1">
-                        <ComboBox x:Name="dayThirteenEventOne">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayThirteenEventTwo">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayThirteenEventThree">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
+                        <ComboBox x:Name="dayThirteenEventOne"/>
+                        <ComboBox x:Name="dayThirteenEventTwo"/>
+                        <ComboBox x:Name="dayThirteenEventThree"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="629,45,0,0" Grid.Column="1">
-                        <ComboBox x:Name="daySevenEventOne">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="daySevenEventTwo">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="daySevenEventThree">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
+                        <ComboBox x:Name="daySevenEventOne"/>
+                        <ComboBox x:Name="daySevenEventTwo"/>
+                        <ComboBox x:Name="daySevenEventThree"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="629,181,0,0" Grid.Column="1">
-                        <ComboBox x:Name="dayFourteenEventOne">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayFourteenEventTwo">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
-                        <ComboBox x:Name="dayFourteenEventThree">
-                            <ListBoxItem Content="Formal"/>
-                            <ListBoxItem Content="Business"/>
-                            <ListBoxItem Content="Business Casual"/>
-                            <ListBoxItem Content="Casual"/>
-                            <ListBoxItem Content="Athletic"/>
-                            <ListBoxItem Content="Water Day"/>
-                        </ComboBox>
+                        <ComboBox x:Name="dayFourteenEventOne"/>
+                        <ComboBox x:Name="dayFourteenEventTwo"/>
+                        <ComboBox x:Name="dayFourteenEventThree"/>
                     </StackPanel>
                     <Label x:Name="label" Content="Day 1" HorizontalAlignment="Center" Margin="10,14,645,0" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2"/>
                     <Label x:Name="label_Copy" Content="Day 2" HorizontalAlignment="Center" Margin="104,14,535,0" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
@@ -425,36 +131,10 @@
                     </Grid.ColumnDefinitions>
                     <TextBox x:Name="articleName" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="44,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                     <ComboBox x:Name="articleType" Grid.Column="1" HorizontalAlignment="Left" Margin="249,38,0,0" VerticalAlignment="Top" Width="120">
-                        <ListBoxItem Content="Dress Shirt"/>
-                        <ListBoxItem Content="Button Down Shirt"/>
-                        <ListBoxItem Content="Polo"/>
-                        <ListBoxItem Content="T-Shirt"/>
-                        <ListBoxItem Content="Blouse"/>
-                        <ListBoxItem Content="Dress"/>
-                        <ListBoxItem Content="Dress Pants"/>
-                        <ListBoxItem Content="Jeans"/>
-                        <ListBoxItem Content="Khakis"/>
-                        <ListBoxItem Content="Casual Shorts"/>
-                        <ListBoxItem Content="Athletic Shorts"/>
-                        <ListBoxItem Content="Casual Pants"/>
-                        <ListBoxItem Content="Bathing Suit"/>
-                        <ListBoxItem Content="Dress Shoes"/>
-                        <ListBoxItem Content="Tennis Shoes"/>
-                        <ListBoxItem Content="Sandals/ Flip Flops"/>
-                        <ListBoxItem Content="Heels"/>
-                        <ListBoxItem Content="Flats"/>
+                        
                     </ComboBox>
                     <ComboBox x:Name="articleColor" Grid.Column="1" HorizontalAlignment="Left" Margin="458,38,0,0" VerticalAlignment="Top" Width="120">
-                        <ListBoxItem Content="Black"/>
-                        <ListBoxItem Content="Brown"/>
-                        <ListBoxItem Content="White"/>
-                        <ListBoxItem Content="Gray"/>
-                        <ListBoxItem Content="Blue"/>
-                        <ListBoxItem Content="Red"/>
-                        <ListBoxItem Content="Green"/>
-                        <ListBoxItem Content="Yellow"/>
-                        <ListBoxItem Content="Purple"/>
-                        <ListBoxItem Content="Orange"/>
+                        
                     </ComboBox>
                     <Label x:Name="label1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top" Width="100">
                         <Label x:Name="label2_Copy" Content="Article Name:"/>

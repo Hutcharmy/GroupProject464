@@ -114,5 +114,11 @@ namespace WpfApplication1
         {
             return (flag & this.eventType) > 0;
         }
+
+        public override string ToString()
+        {
+            return name + "\t" + type.ToString() + "\t" + color.ToString();
+        }
+        
     }
 }
