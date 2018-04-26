@@ -213,6 +213,8 @@ namespace WpfApplication1
             //search through each of the combo boxes and add them to the dictionary
             ReadEvents();
 
+            Dictionary<String, byte> temp = userEvents;
+
             //call Creator to run the algorithm
             
         }
@@ -224,225 +226,225 @@ namespace WpfApplication1
             if(dayOneEventOne.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayOneEventOne.SelectedValue.ToString());
-                events["dayOneEventOne"] = temp;
+                userEvents["dayOneEventOne"] = temp;
             }
             if (dayOneEventTwo.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayOneEventTwo.SelectedValue.ToString());
-                events["dayOneEventTwo"] = temp;
+                userEvents["dayOneEventTwo"] = temp;
             }
             if (dayOneEventThree.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayOneEventThree.SelectedValue.ToString());
-                events["dayOneEventThree"] = temp;
+                userEvents["dayOneEventThree"] = temp;
             }
 
             if (dayTwoEventOne.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayTwoEventOne.SelectedValue.ToString());
-                events["dayTwoEventOne"] = temp;
+                userEvents["dayTwoEventOne"] = temp;
             }
             if (dayTwoEventTwo.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayTwoEventTwo.SelectedValue.ToString());
-                events["dayTwoEventTwo"] = temp;
+                userEvents["dayTwoEventTwo"] = temp;
             }
             if (dayTwoEventThree.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayTwoEventThree.SelectedValue.ToString());
-                events["dayTwoEventThree"] = temp;
+                userEvents["dayTwoEventThree"] = temp;
             }
 
             if (dayThreeEventOne.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayThreeEventOne.SelectedValue.ToString());
-                events["dayThreeEventOne"] = temp;
+                userEvents["dayThreeEventOne"] = temp;
             }
             if (dayThreeEventTwo.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayThreeEventTwo.SelectedValue.ToString());
-                events["dayThreeEventTwo"] = temp;
+                userEvents["dayThreeEventTwo"] = temp;
             }
             if (dayThreeEventThree.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayThreeEventThree.SelectedValue.ToString());
-                events["dayThreeEventThree"] = temp;
+                userEvents["dayThreeEventThree"] = temp;
             }
 
             if (dayFourEventOne.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayFourEventOne.SelectedValue.ToString());
-                events["dayFourEventOne"] = temp;
+                userEvents["dayFourEventOne"] = temp;
             }
             if (dayFourEventTwo.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayFourEventTwo.SelectedValue.ToString());
-                events["dayFourEventTwo"] = temp;
+                userEvents["dayFourEventTwo"] = temp;
             }
             if (dayFourEventThree.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayFourEventThree.SelectedValue.ToString());
-                events["dayFourEventThree"] = temp;
+                userEvents["dayFourEventThree"] = temp;
             }
 
             if (dayFiveEventOne.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayFiveEventOne.SelectedValue.ToString());
-                events["dayFiveEventOne"] = temp;
+                userEvents["dayFiveEventOne"] = temp;
             }
             if (dayFiveEventTwo.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayFiveEventTwo.SelectedValue.ToString());
-                events["dayFiveEventTwo"] = temp;
+                userEvents["dayFiveEventTwo"] = temp;
             }
             if (dayFiveEventThree.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayFiveEventThree.SelectedValue.ToString());
-                events["dayFiveEventThree"] = temp;
+                userEvents["dayFiveEventThree"] = temp;
             }
 
             if (daySixEventOne.SelectedItem != null)
             {
                 byte temp = GetByteValue(daySixEventOne.SelectedValue.ToString());
-                events["daySixEventOne"] = temp;
+                userEvents["daySixEventOne"] = temp;
             }
             if (daySixEventTwo.SelectedItem != null)
             {
                 byte temp = GetByteValue(daySixEventTwo.SelectedValue.ToString());
-                events["daySixEventTwo"] = temp;
+                userEvents["daySixEventTwo"] = temp;
             }
             if (daySixEventThree.SelectedItem != null)
             {
                 byte temp = GetByteValue(daySixEventThree.SelectedValue.ToString());
-                events["daySixEventThree"] = temp;
+                userEvents["daySixEventThree"] = temp;
             }
 
             if (daySevenEventOne.SelectedItem != null)
             {
                 byte temp = GetByteValue(daySevenEventOne.SelectedValue.ToString());
-                events["daySevenEventOne"] = temp;
+                userEvents["daySevenEventOne"] = temp;
             }
             if (daySevenEventTwo.SelectedItem != null)
             {
                 byte temp = GetByteValue(daySevenEventTwo.SelectedValue.ToString());
-                events["daySevenEventTwo"] = temp;
+                userEvents["daySevenEventTwo"] = temp;
             }
             if (daySevenEventThree.SelectedItem != null)
             {
                 byte temp = GetByteValue(daySevenEventThree.SelectedValue.ToString());
-                events["daySevenEventThree"] = temp;
+                userEvents["daySevenEventThree"] = temp;
             }
 
             if (dayEightEventOne.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayEightEventOne.SelectedValue.ToString());
-                events["dayEightEventOne"] = temp;
+                userEvents["dayEightEventOne"] = temp;
             }
             if (dayEightEventTwo.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayEightEventTwo.SelectedValue.ToString());
-                events["dayEightEventTwo"] = temp;
+                userEvents["dayEightEventTwo"] = temp;
             }
             if (dayEightEventThree.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayEightEventThree.SelectedValue.ToString());
-                events["dayEightEventThree"] = temp;
+                userEvents["dayEightEventThree"] = temp;
             }
 
             if (dayNineEventOne.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayNineEventOne.SelectedValue.ToString());
-                events["dayNineEventOne"] = temp;
+                userEvents["dayNineEventOne"] = temp;
             }
             if (dayNineEventTwo.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayNineEventTwo.SelectedValue.ToString());
-                events["dayNineEventTwo"] = temp;
+                userEvents["dayNineEventTwo"] = temp;
             }
             if (dayNineEventThree.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayNineEventThree.SelectedValue.ToString());
-                events["dayNineEventThree"] = temp;
+                userEvents["dayNineEventThree"] = temp;
             }
 
             if (dayTenEventOne.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayTenEventOne.SelectedValue.ToString());
-                events["dayTenEventOne"] = temp;
+                userEvents["dayTenEventOne"] = temp;
             }
             if (dayTenEventTwo.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayTenEventTwo.SelectedValue.ToString());
-                events["dayTenEventTwo"] = temp;
+                userEvents["dayTenEventTwo"] = temp;
             }
             if (dayTenEventThree.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayTenEventThree.SelectedValue.ToString());
-                events["dayTenEventThree"] = temp;
+                userEvents["dayTenEventThree"] = temp;
             }
 
             if (dayElevenEventOne.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayElevenEventOne.SelectedValue.ToString());
-                events["dayElevenEventOne"] = temp;
+                userEvents["dayElevenEventOne"] = temp;
             }
             if (dayElevenEventTwo.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayElevenEventTwo.SelectedValue.ToString());
-                events["dayElevenEventTwo"] = temp;
+                userEvents["dayElevenEventTwo"] = temp;
             }
             if (dayElevenEventThree.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayElevenEventThree.SelectedValue.ToString());
-                events["dayElevenEventThree"] = temp;
+                userEvents["dayElevenEventThree"] = temp;
             }
 
             if (dayTwelveEventOne.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayTwelveEventOne.SelectedValue.ToString());
-                events["dayTwelveEventOne"] = temp;
+                userEvents["dayTwelveEventOne"] = temp;
             }
             if (dayTwelveEventTwo.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayTwelveEventTwo.SelectedValue.ToString());
-                events["dayTwelveEventTwo"] = temp;
+                userEvents["dayTwelveEventTwo"] = temp;
             }
             if (dayTwelveEventThree.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayTwelveEventThree.SelectedValue.ToString());
-                events["dayTwelveEventThree"] = temp;
+                userEvents["dayTwelveEventThree"] = temp;
             }
 
             if (dayThirteenEventOne.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayThirteenEventOne.SelectedValue.ToString());
-                events["dayThirteenEventOne"] = temp;
+                userEvents["dayThirteenEventOne"] = temp;
             }
             if (dayThirteenEventTwo.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayThirteenEventTwo.SelectedValue.ToString());
-                events["dayThirteenEventTwo"] = temp;
+                userEvents["dayThirteenEventTwo"] = temp;
             }
             if (dayThirteenEventThree.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayThirteenEventThree.SelectedValue.ToString());
-                events["dayThirteenEventThree"] = temp;
+                userEvents["dayThirteenEventThree"] = temp;
             }
 
             if (dayFourteenEventOne.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayFourteenEventOne.SelectedValue.ToString());
-                events["dayFourteenEventOne"] = temp;
+                userEvents["dayFourteenEventOne"] = temp;
             }
             if (dayFourteenEventTwo.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayFourteenEventTwo.SelectedValue.ToString());
-                events["dayFourteenEventTwo"] = temp;
+                userEvents["dayFourteenEventTwo"] = temp;
             }
             if (dayFourteenEventThree.SelectedItem != null)
             {
                 byte temp = GetByteValue(dayFourteenEventThree.SelectedValue.ToString());
-                events["dayFourteenEventThree"] = temp;
+                userEvents["dayFourteenEventThree"] = temp;
             }
 
 
