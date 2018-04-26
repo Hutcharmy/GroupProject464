@@ -8,22 +8,85 @@ namespace WpfApplication1
 {
     class Creator
     {
-        private List<String> events;
+        private Dictionary<String, byte> events;
         private Wardrobe wardrobe;
+        private Dictionary<String, Outfit> finalOutfits;
 
-        
-
-        public Creator()
+        public Creator(Dictionary<String, byte> events)
         {
-            events = new List<String>();
+            predefineOutfitDict();
+            this.events = events;
             wardrobe = new Wardrobe();
         }
-        public Creator(List<String> e, Wardrobe ward)
+        public Creator(Dictionary<String, byte> events, Wardrobe ward)
         {
-            events = e;
-            wardrobe = ward;
+            predefineOutfitDict();
+            this.events = events;
+            this.wardrobe = ward;
         }
-        private void GenerateOutfit(List<String> e = null, Wardrobe ward = null)
+
+        private void predefineOutfitDict()
+        {
+            Outfit tempOutfit = new Outfit();
+
+            finalOutfits.Add("dayOneEventOne", tempOutfit);
+            finalOutfits.Add("dayOneEventTwo", tempOutfit);
+            finalOutfits.Add("dayOneEventThree", tempOutfit);
+
+            finalOutfits.Add("dayTwoEventOne", tempOutfit);
+            finalOutfits.Add("dayTwoEventTwo", tempOutfit);
+            finalOutfits.Add("dayTwoEventThree", tempOutfit);
+
+            finalOutfits.Add("dayThreeEventOne", tempOutfit);
+            finalOutfits.Add("dayThreeEventTwo", tempOutfit);
+            finalOutfits.Add("dayThreeEventThree", tempOutfit);
+
+            finalOutfits.Add("dayFourEventOne", tempOutfit);
+            finalOutfits.Add("dayFourEventTwo", tempOutfit);
+            finalOutfits.Add("dayFourEventThree", tempOutfit);
+
+            finalOutfits.Add("dayFiveEventOne", tempOutfit);
+            finalOutfits.Add("dayFiveEventTwo", tempOutfit);
+            finalOutfits.Add("dayFiveEventThree", tempOutfit);
+
+            finalOutfits.Add("daySixEventOne", tempOutfit);
+            finalOutfits.Add("daySixEventTwo", tempOutfit);
+            finalOutfits.Add("daySixEventThree", tempOutfit);
+
+            finalOutfits.Add("daySevenEventOne", tempOutfit);
+            finalOutfits.Add("daySevenEentTwo", tempOutfit);
+            finalOutfits.Add("daySevenEventThree", tempOutfit);
+
+            finalOutfits.Add("dayEightEventOne", tempOutfit);
+            finalOutfits.Add("dayEightEventTwo", tempOutfit);
+            finalOutfits.Add("dayEightEventThree", tempOutfit);
+
+            finalOutfits.Add("dayNineEventOne", tempOutfit);
+            finalOutfits.Add("dayNineEventTwo", tempOutfit);
+            finalOutfits.Add("dayNineEventThree", tempOutfit);
+
+            finalOutfits.Add("dayTenEventOne", tempOutfit);
+            finalOutfits.Add("dayTenEventTwo", tempOutfit);
+            finalOutfits.Add("dayTenEventThree", tempOutfit);
+
+            finalOutfits.Add("dayElevenEventOne", tempOutfit);
+            finalOutfits.Add("dayElevenEventTwo", tempOutfit);
+            finalOutfits.Add("dayElevenEventThree", tempOutfit);
+
+            finalOutfits.Add("dayTwelveEventOne", tempOutfit);
+            finalOutfits.Add("dayTwelveEventTwo", tempOutfit);
+            finalOutfits.Add("dayTwelveEventThree", tempOutfit);
+
+            finalOutfits.Add("dayThirteenEventOne", tempOutfit);
+            finalOutfits.Add("dayThirteenEventTwo", tempOutfit);
+            finalOutfits.Add("dayThirteenEventThree", tempOutfit);
+
+            finalOutfits.Add("dayFourteenEventOne", tempOutfit);
+            finalOutfits.Add("dayFourteenEventTwo", tempOutfit);
+            finalOutfits.Add("dayFourteenEventThree", tempOutfit);
+        }
+
+        private void GenerateOutfit(Dictionary<String, byte> e = null, Wardrobe ward = null)
         {
             if (e != null)
             {
@@ -37,10 +100,10 @@ namespace WpfApplication1
             Outfit currentOutfit = null;
 
             //iterate through each event in eventList
-            for (int i = 0; i < events.Capacity; i++)
+            for (int i = 0; i < events.Count; i++)
             {
-                currentOutfit = ChooseOutfit(events[i]);
-                finalOutfits.Add(events[i], currentOutfit);
+                //currentOutfit = ChooseOutfit(events[i]);
+                //finalOutfits.Add(events[i], currentOutfit);
             }
 
             //print the outfits to the console for the User

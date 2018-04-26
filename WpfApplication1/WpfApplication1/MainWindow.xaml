@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="775.787" Loaded="Window_Loaded">
     <Grid HorizontalAlignment="Left" Width="766">
-        <TabControl x:Name="tabControl" Height="319" VerticalAlignment="Top" HorizontalAlignment="Left" Width="760" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="84*"/>
+            <ColumnDefinition Width="299*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl x:Name="tabControl" Height="319" VerticalAlignment="Top" HorizontalAlignment="Left" Width="760" Background="White" Grid.ColumnSpan="2">
             <TabItem Header="Home" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54">
                 <Grid>
                     <Grid.Background>
@@ -17,6 +21,16 @@
                             <GradientStop Color="#FF73A2AC"/>
                         </LinearGradientBrush>
                     </Grid.Background>
+                    <Label x:Name="label3" Content="Welcome to the Outfit Creator Application!" HorizontalAlignment="center" Margin="245,15,245,0" VerticalAlignment="Top" Width="264" FontWeight="Bold"/>
+                    <Label x:Name="label3_Copy" Content="In order to efficiently and most effectively utilize this tool, we advise taking the following course of action using these steps: &#xD;&#xA;&#xD;&#xA;1. Go the Events tab and fill in the events you will be attending based on the level of dress you will need to wear for each event&#xD;&#xA;&#xD;&#xA;2. Go to the Wardrobe tab and enter in all of your articles of clothing&#xD;&#xA;&#x9;- You can import in an Excel file with all of your wardrobe, this should be done before adding other articles of clothing&#xD;&#xA;&#x9;   See the template Excel file for a reference on the formatting of the document&#xD;&#xA;&#x9;- Your wardrobe can also be saved to an Excel file for future use &#xD;&#xA;&#xD;&#xA;3. Once events and wardrobe have been entered, click the Get Result button to get a display of outfits for each event you have entered!" HorizontalAlignment="center" Margin="10,41,10,0" VerticalAlignment="Top" Width="734" Height="174"/>
+                    <TextBox x:Name="inputFileName" HorizontalAlignment="Left" Height="23" Margin="314,224,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="outputFileName" HorizontalAlignment="Left" Height="23" Margin="314,255,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <Label x:Name="label4" Content="Input File Name:" HorizontalAlignment="Left" Margin="209,221,0,0" VerticalAlignment="Top" Width="100"/>
+                    <Button x:Name="button" Content="Input" HorizontalAlignment="Left" Margin="458,224,0,0" VerticalAlignment="Top" Width="95" Height="23" Click="button_Click"/>
+                    <Label x:Name="label4_Copy" Content="Output File Name:" HorizontalAlignment="Left" Margin="199,255,0,0" VerticalAlignment="Top" Width="110"/>
+                    <Button x:Name="button_Copy" Content="Output" HorizontalAlignment="Left" Margin="458,256,0,0" VerticalAlignment="Top" Width="95" Height="23" Click="button_Copy_Click"/>
+                    <Label Name="outputError" Content="" HorizontalAlignment="Left" Margin="578,252,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.342,0.269" Width="108"/>
+                    <Label Name="intputError" Content="" HorizontalAlignment="Left" Margin="578,224,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.342,0.269" Width="122"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Events">
@@ -130,11 +144,11 @@
                         <ColumnDefinition Width="703*"/>
                     </Grid.ColumnDefinitions>
                     <TextBox x:Name="articleName" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="44,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <ComboBox x:Name="articleType" Grid.Column="1" HorizontalAlignment="Left" Margin="249,38,0,0" VerticalAlignment="Top" Width="120">
-                        
+                    <ComboBox x:Name="articleType" Grid.Column="1" HorizontalAlignment="Left" Margin="249,38,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
+
                     </ComboBox>
-                    <ComboBox x:Name="articleColor" Grid.Column="1" HorizontalAlignment="Left" Margin="458,38,0,0" VerticalAlignment="Top" Width="120">
-                        
+                    <ComboBox x:Name="articleColor" Grid.Column="1" HorizontalAlignment="Left" Margin="458,38,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
+
                     </ComboBox>
                     <Label x:Name="label1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top" Width="100">
                         <Label x:Name="label2_Copy" Content="Article Name:"/>
@@ -147,8 +161,9 @@
                     </Label>
                     <ListBox x:Name="articleList" HorizontalAlignment="Left" Height="115" Margin="10,166,0,0" VerticalAlignment="Top" Width="734" Grid.ColumnSpan="2"/>
                     <Label x:Name="label2" Content="Current Wardrobe: " HorizontalAlignment="Center" Margin="10,135,624,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-                    <Button x:Name="saveArticle" Content="Save Article" Grid.Column="1" HorizontalAlignment="Left" Margin="603,33,0,0" VerticalAlignment="Top" Width="90" Height="32"/>
-                    <Button x:Name="printResult" Content="Get Result" HorizontalAlignment="Center" Margin="276,100,337,160" Width="93" Height="33" Grid.Column="1" VerticalAlignment="Center" Click="printResult_Click" />
+                    <Button x:Name="saveArticle" Content="Save Article" Grid.Column="1" HorizontalAlignment="Left" Margin="603,33,0,0" VerticalAlignment="Top" Width="90" Height="32" Click="saveArticle_Click"/>
+                    <Button x:Name="printResult" Content="Get Result" HorizontalAlignment="Center" Margin="603,104,13,156" Width="90" Height="33" Grid.Column="1" VerticalAlignment="Center" Click="printResult_Click" />
+                    <Label x:Name="errorLabel" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="188,86,0,0" VerticalAlignment="Top" Width="237"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Result" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54">
@@ -163,5 +178,6 @@
                 </Grid>
             </TabItem>
         </TabControl>
+        <DocumentViewer x:Name="documentViewer" HorizontalAlignment="Left" Height="100" Margin="377,343,0,-124" VerticalAlignment="Top" Grid.Column="1"/>
     </Grid>
 </Window>

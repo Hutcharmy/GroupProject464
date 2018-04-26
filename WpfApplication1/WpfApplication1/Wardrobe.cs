@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using Excel = Microsoft.Office.Interop.Excel;
+using OfficeOpenXml;
+using System.IO;
 
 namespace WpfApplication1
 {
@@ -28,6 +30,7 @@ namespace WpfApplication1
             shirts = new List<ClothingItem>();
             pants = new List<ClothingItem>();
             shoes = new List<ClothingItem>();
+
             //Create COM Objects. Create a COM object for everything that is referenced
             Excel.Application xlApp = new Excel.Application();
             Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(filename);
@@ -66,8 +69,8 @@ namespace WpfApplication1
                         error = true;
                     }
                     //write the value to the console
-                    if (xlRange.Cells[i, j] != null && xlRange.Cells[i, j].Value2 != null)
-                        Console.Write(xlRange.Cells[i, j].Value2.ToString() + "\t");
+                    //if (xlRange.Cells[i, j] != null && xlRange.Cells[i, j].Value2 != null)
+                        //Console.Write(xlRange.Cells[i, j].Value2.ToString() + "\t");
                 }
 
                 if (error == false)
@@ -141,10 +144,100 @@ namespace WpfApplication1
 
         public void StoreWardrobe(String filename)
         {
-            //Store wardrobe in specified file location
+            using (ExcelPackage excel = new ExcelPackage())
+            {
+
+                excel.Workbook.Worksheets.Add("outfits");
+
+                //create a new excel file
+                //files are saved in GroupProject464\WpfApplication1\WpfApplication1\bin\Debug\{filename.xlsx}
+                FileInfo excelFile = new FileInfo(@"" + filename + ".xlsx");
+                excel.SaveAs(excelFile);
+
+                //create a worksheet in the excel file
+                var excelWorksheet = excel.Workbook.Worksheets["outfits"];
+
+                //add info to the cells
+                int rowCount = shirts.Count() + pants.Count() + shoes.Count();
+                var cellData = new List<string[]>();
+
+                //itterate through all the shirts and add them to the cellData
+                for (int i = 0; i < shirts.Count; i++)
+                {
+                    string[] row = new string[3];
+                    //go over each column
+                    for (int j = 0; j < 3; j++)
+                    {
+                        if (j == 0)
+                        {
+                            row[j] = shirts[i].Name;
+                        }
+                        else if (j == 1)
+                        {
+                            row[j] = shirts[i].Type.ToString();
+                        }
+                        else
+                        {
+                            row[j] = shirts[i].Color.ToString();
+                        }
+                    }
+                    cellData.Add(row);
+                }
+
+                //itterate through all the pants and add them to the cellData
+                for (int i = 0; i < pants.Count; i++)
+                {
+                    string[] row = new string[3];
+                    //go over each column
+                    for (int j = 0; j < 3; j++)
+                    {
+                        if (j == 0)
+                        {
+                            row[j] = pants[i].Name;
+                        }
+                        else if (j == 1)
+                        {
+                            row[j] = pants[i].Type.ToString();
+                        }
+                        else
+                        {
+                            row[j] = pants[i].Color.ToString();
+                        }
+                    }
+                    cellData.Add(row);
+                }
+
+                //itterate through all the shoes and add them to the cellData
+                for (int i = 0; i < shoes.Count; i++)
+                {
+                    string[] row = new string[3];
+                    //go over each column
+                    for (int j = 0; j < 3; j++)
+                    {
+                            if (j == 0)
+                            {
+                                row[j] = shoes[i].Name;
+                            }
+                            else if (j == 1)
+                            {
+                                row[j] = shoes[i].Type.ToString();
+                            }
+                            else
+                            {
+                                row[j] = shoes[i].Color.ToString();
+                            }
+                    }
+                    cellData.Add(row);
+                }
+
+                //add all of the outfits to the excel file 
+                excelWorksheet.Cells[1, 1].LoadFromArrays(cellData);
+                excel.SaveAs(excelFile);
+                
+            }
         }
 
-        public ClothingColor getColor(String color)
+        private ClothingColor getColor(String color)
         {
             if (color.Equals(Enum.GetName(typeof(ClothingColor), ClothingColor.Black)))
             {
@@ -193,7 +286,7 @@ namespace WpfApplication1
             }
         }
 
-        public ClothingType getType(String type)
+        private ClothingType getType(String type)
         {
             if (type.Equals(Enum.GetName(typeof(ClothingType), ClothingType.AthleticShorts)))
             {

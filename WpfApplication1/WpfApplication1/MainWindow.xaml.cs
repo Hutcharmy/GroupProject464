@@ -59,6 +59,7 @@ namespace WpfApplication1
                 articleType.Items.Add(item);
             }
             AddToEventDropdowns();
+
             string directory = Directory.GetCurrentDirectory().Replace(@"bin\Debug", "");
             string filepath = System.IO.Path.Combine(directory, @"listClothes1.xlsx");
             if (System.IO.File.Exists(filepath))
@@ -212,28 +213,308 @@ namespace WpfApplication1
             //search through each of the combo boxes and add them to the dictionary
             ReadEvents();
 
+            //call Creator to run the algorithm
             
         }
 
-        public void ReadEvents()
+        private void ReadEvents()
         {
-            //loop through each
+            //loop through each combo box, check if the value is null, if not find the byte string 
+            //associated with the event type and put it in the events dictionary
             if(dayOneEventOne.SelectedItem != null)
             {
-                //UserEvents.
+                byte temp = GetByteValue(dayOneEventOne.SelectedValue.ToString());
+                events["dayOneEventOne"] = temp;
             }
+            if (dayOneEventTwo.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayOneEventTwo.SelectedValue.ToString());
+                events["dayOneEventTwo"] = temp;
+            }
+            if (dayOneEventThree.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayOneEventThree.SelectedValue.ToString());
+                events["dayOneEventThree"] = temp;
+            }
+
+            if (dayTwoEventOne.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayTwoEventOne.SelectedValue.ToString());
+                events["dayTwoEventOne"] = temp;
+            }
+            if (dayTwoEventTwo.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayTwoEventTwo.SelectedValue.ToString());
+                events["dayTwoEventTwo"] = temp;
+            }
+            if (dayTwoEventThree.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayTwoEventThree.SelectedValue.ToString());
+                events["dayTwoEventThree"] = temp;
+            }
+
+            if (dayThreeEventOne.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayThreeEventOne.SelectedValue.ToString());
+                events["dayThreeEventOne"] = temp;
+            }
+            if (dayThreeEventTwo.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayThreeEventTwo.SelectedValue.ToString());
+                events["dayThreeEventTwo"] = temp;
+            }
+            if (dayThreeEventThree.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayThreeEventThree.SelectedValue.ToString());
+                events["dayThreeEventThree"] = temp;
+            }
+
+            if (dayFourEventOne.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayFourEventOne.SelectedValue.ToString());
+                events["dayFourEventOne"] = temp;
+            }
+            if (dayFourEventTwo.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayFourEventTwo.SelectedValue.ToString());
+                events["dayFourEventTwo"] = temp;
+            }
+            if (dayFourEventThree.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayFourEventThree.SelectedValue.ToString());
+                events["dayFourEventThree"] = temp;
+            }
+
+            if (dayFiveEventOne.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayFiveEventOne.SelectedValue.ToString());
+                events["dayFiveEventOne"] = temp;
+            }
+            if (dayFiveEventTwo.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayFiveEventTwo.SelectedValue.ToString());
+                events["dayFiveEventTwo"] = temp;
+            }
+            if (dayFiveEventThree.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayFiveEventThree.SelectedValue.ToString());
+                events["dayFiveEventThree"] = temp;
+            }
+
+            if (daySixEventOne.SelectedItem != null)
+            {
+                byte temp = GetByteValue(daySixEventOne.SelectedValue.ToString());
+                events["daySixEventOne"] = temp;
+            }
+            if (daySixEventTwo.SelectedItem != null)
+            {
+                byte temp = GetByteValue(daySixEventTwo.SelectedValue.ToString());
+                events["daySixEventTwo"] = temp;
+            }
+            if (daySixEventThree.SelectedItem != null)
+            {
+                byte temp = GetByteValue(daySixEventThree.SelectedValue.ToString());
+                events["daySixEventThree"] = temp;
+            }
+
+            if (daySevenEventOne.SelectedItem != null)
+            {
+                byte temp = GetByteValue(daySevenEventOne.SelectedValue.ToString());
+                events["daySevenEventOne"] = temp;
+            }
+            if (daySevenEventTwo.SelectedItem != null)
+            {
+                byte temp = GetByteValue(daySevenEventTwo.SelectedValue.ToString());
+                events["daySevenEventTwo"] = temp;
+            }
+            if (daySevenEventThree.SelectedItem != null)
+            {
+                byte temp = GetByteValue(daySevenEventThree.SelectedValue.ToString());
+                events["daySevenEventThree"] = temp;
+            }
+
+            if (dayEightEventOne.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayEightEventOne.SelectedValue.ToString());
+                events["dayEightEventOne"] = temp;
+            }
+            if (dayEightEventTwo.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayEightEventTwo.SelectedValue.ToString());
+                events["dayEightEventTwo"] = temp;
+            }
+            if (dayEightEventThree.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayEightEventThree.SelectedValue.ToString());
+                events["dayEightEventThree"] = temp;
+            }
+
+            if (dayNineEventOne.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayNineEventOne.SelectedValue.ToString());
+                events["dayNineEventOne"] = temp;
+            }
+            if (dayNineEventTwo.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayNineEventTwo.SelectedValue.ToString());
+                events["dayNineEventTwo"] = temp;
+            }
+            if (dayNineEventThree.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayNineEventThree.SelectedValue.ToString());
+                events["dayNineEventThree"] = temp;
+            }
+
+            if (dayTenEventOne.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayTenEventOne.SelectedValue.ToString());
+                events["dayTenEventOne"] = temp;
+            }
+            if (dayTenEventTwo.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayTenEventTwo.SelectedValue.ToString());
+                events["dayTenEventTwo"] = temp;
+            }
+            if (dayTenEventThree.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayTenEventThree.SelectedValue.ToString());
+                events["dayTenEventThree"] = temp;
+            }
+
+            if (dayElevenEventOne.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayElevenEventOne.SelectedValue.ToString());
+                events["dayElevenEventOne"] = temp;
+            }
+            if (dayElevenEventTwo.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayElevenEventTwo.SelectedValue.ToString());
+                events["dayElevenEventTwo"] = temp;
+            }
+            if (dayElevenEventThree.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayElevenEventThree.SelectedValue.ToString());
+                events["dayElevenEventThree"] = temp;
+            }
+
+            if (dayTwelveEventOne.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayTwelveEventOne.SelectedValue.ToString());
+                events["dayTwelveEventOne"] = temp;
+            }
+            if (dayTwelveEventTwo.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayTwelveEventTwo.SelectedValue.ToString());
+                events["dayTwelveEventTwo"] = temp;
+            }
+            if (dayTwelveEventThree.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayTwelveEventThree.SelectedValue.ToString());
+                events["dayTwelveEventThree"] = temp;
+            }
+
+            if (dayThirteenEventOne.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayThirteenEventOne.SelectedValue.ToString());
+                events["dayThirteenEventOne"] = temp;
+            }
+            if (dayThirteenEventTwo.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayThirteenEventTwo.SelectedValue.ToString());
+                events["dayThirteenEventTwo"] = temp;
+            }
+            if (dayThirteenEventThree.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayThirteenEventThree.SelectedValue.ToString());
+                events["dayThirteenEventThree"] = temp;
+            }
+
+            if (dayFourteenEventOne.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayFourteenEventOne.SelectedValue.ToString());
+                events["dayFourteenEventOne"] = temp;
+            }
+            if (dayFourteenEventTwo.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayFourteenEventTwo.SelectedValue.ToString());
+                events["dayFourteenEventTwo"] = temp;
+            }
+            if (dayFourteenEventThree.SelectedItem != null)
+            {
+                byte temp = GetByteValue(dayFourteenEventThree.SelectedValue.ToString());
+                events["dayFourteenEventThree"] = temp;
+            }
+
 
         }
 
-        /*public byte getByteValue(String name)
+        private byte GetByteValue(String nameOfEvent)
         {
             foreach(String eventType in events.Keys)
             {
-                if (eventType.Equals(name))
+                if (eventType.Equals(nameOfEvent))
                 {
-                    return 
+                    return events[eventType];
                 }
             }
-        }*/
+
+            //this calls if there is no event 
+            return 0b00000;
+        }
+
+        private void button_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            ward.StoreWardrobe(outputFileName.Text);
+            outputError.Content = "File was saved";
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            string fileName = inputFileName.Text;
+            string directory = Directory.GetCurrentDirectory();
+            string filepath = System.IO.Path.Combine(directory, @"" + fileName + ".xlsx");
+            if (System.IO.File.Exists(filepath))
+            {
+                articleList.Items.Clear();
+                ward = new Wardrobe(filepath);
+                foreach (var item in ward.Shirts)
+                {
+                    articleList.Items.Add(item);
+                }
+                foreach (var item in ward.Pants)
+                {
+                    articleList.Items.Add(item);
+                }
+                foreach (var item in ward.Shoes)
+                {
+                    articleList.Items.Add(item);
+                }
+            }
+            else
+            {
+                ward = new Wardrobe();
+            }
+
+            intputError.Content = "File was brought in";
+        }
+
+        private void saveArticle_Click(object sender, RoutedEventArgs e)
+        {
+            if(articleName.Text == "")
+            {
+                errorLabel.Content = "Please Provide an article name";
+            }
+            else
+            {
+                ClothingItem tempItem = new ClothingItem((ClothingType)articleType.SelectedItem, (ClothingColor)articleColor.SelectedValue, articleName.Text);
+                ward.AddItem(tempItem);
+
+                //add the item to the listbox
+                articleList.Items.Add(tempItem.ToString());
+                errorLabel.Content = "Article Added to bottom of list";
+
+
+            }
+        }
     }
 }
