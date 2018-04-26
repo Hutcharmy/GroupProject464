@@ -10,6 +10,9 @@ namespace WpfApplication1
     {
         private List<String> events;
         private Wardrobe wardrobe;
+
+        
+
         public Creator()
         {
             events = new List<String>();

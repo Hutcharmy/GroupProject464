@@ -18,7 +18,6 @@ namespace WpfApplication1
             
         }
 
-
         internal ClothingItem Shirt { get => shirt; set => shirt = value; }
         internal ClothingItem Pants { get => pants; set => pants = value; }
         internal ClothingItem Shoes { get => shoes; set => shoes = value; }

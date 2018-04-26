@@ -22,11 +22,17 @@ namespace WpfApplication1
 
     public partial class MainWindow : Window
     {
+        //actual list
         private Dictionary<String, byte> events = new Dictionary<String, byte>();
 
+        //property
         public Dictionary<string, byte> Events { get => events; set => events = value; }
 
         private Wardrobe ward;
+
+        public Dictionary<string, byte> userEvents = new Dictionary<string, byte>();
+
+        public Dictionary<string, byte> UserEvents { get => events; set => events = value; }
 
         public MainWindow()
         {
@@ -41,6 +47,9 @@ namespace WpfApplication1
             Events.Add("Business Casual", 0b100);
             Events.Add("Casual", 0b10);
             Events.Add("Athletic", 0b1);
+
+            AddDaysAndEventsToDict();
+
             foreach (var item in Enum.GetValues(typeof(ClothingColor)))
             {
                 articleColor.Items.Add(item);
@@ -72,6 +81,66 @@ namespace WpfApplication1
             {
                 ward = new Wardrobe();
             }
+        }
+
+        public void AddDaysAndEventsToDict()
+        {
+            userEvents.Add("dayOneEventOne", 0b00000);
+            userEvents.Add("dayOneEventTwo", 0b00000);
+            userEvents.Add("dayOneEventThree", 0b00000);
+
+            userEvents.Add("dayTwoEventOne", 0b00000);
+            userEvents.Add("dayTwoEventTwo", 0b00000);
+            userEvents.Add("dayTwoEventThree", 0b00000);
+
+            userEvents.Add("dayThreeEventOne", 0b00000);
+            userEvents.Add("dayThreeEventTwo", 0b00000);
+            userEvents.Add("dayThreeEventThree", 0b00000);
+
+            userEvents.Add("dayFourEventOne", 0b00000);
+            userEvents.Add("dayFourEventTwo", 0b00000);
+            userEvents.Add("dayFourEventThree", 0b00000);
+
+            userEvents.Add("dayFiveEventOne", 0b00000);
+            userEvents.Add("dayFiveEventTwo", 0b00000);
+            userEvents.Add("dayFiveEventThree", 0b00000);
+
+            userEvents.Add("daySixEventOne", 0b00000);
+            userEvents.Add("daySixEventTwo", 0b00000);
+            userEvents.Add("daySixEventThree", 0b00000);
+
+            userEvents.Add("daySevenEventOne", 0b00000);
+            userEvents.Add("daySevenEentTwo", 0b00000);
+            userEvents.Add("daySevenEventThree", 0b00000);
+
+            userEvents.Add("dayEightEventOne", 0b00000);
+            userEvents.Add("dayEightEventTwo", 0b00000);
+            userEvents.Add("dayEightEventThree", 0b00000);
+
+            userEvents.Add("dayNineEventOne", 0b00000);
+            userEvents.Add("dayNineEventTwo", 0b00000);
+            userEvents.Add("dayNineEventThree", 0b00000);
+
+            userEvents.Add("dayTenEventOne", 0b00000);
+            userEvents.Add("dayTenEventTwo", 0b00000);
+            userEvents.Add("dayTenEventThree", 0b00000);
+
+            userEvents.Add("dayElevenEventOne", 0b00000);
+            userEvents.Add("dayElevenEventTwo", 0b00000);
+            userEvents.Add("dayElevenEventThree", 0b00000);
+
+            userEvents.Add("dayTwelveEventOne", 0b00000);
+            userEvents.Add("dayTwelveEventTwo", 0b00000);
+            userEvents.Add("dayTwelveEventThree", 0b00000);
+
+            userEvents.Add("dayThirteenEventOne", 0b00000);
+            userEvents.Add("dayThirteenEventTwo", 0b00000);
+            userEvents.Add("dayThirteenEventThree", 0b00000);
+
+            userEvents.Add("dayFourteenEventOne", 0b00000);
+            userEvents.Add("dayFourteenEventTwo", 0b00000);
+            userEvents.Add("dayFourteenEventThree", 0b00000);
+
         }
 
         private void AddToEventDropdowns()
@@ -137,5 +206,34 @@ namespace WpfApplication1
 
             }
         }
+
+        private void printResult_Click(object sender, RoutedEventArgs e)
+        {
+            //search through each of the combo boxes and add them to the dictionary
+            ReadEvents();
+
+            
+        }
+
+        public void ReadEvents()
+        {
+            //loop through each
+            if(dayOneEventOne.SelectedItem != null)
+            {
+                //UserEvents.
+            }
+
+        }
+
+        /*public byte getByteValue(String name)
+        {
+            foreach(String eventType in events.Keys)
+            {
+                if (eventType.Equals(name))
+                {
+                    return 
+                }
+            }
+        }*/
     }
 }

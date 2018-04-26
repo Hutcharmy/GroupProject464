@@ -148,7 +148,7 @@
                     <ListBox x:Name="articleList" HorizontalAlignment="Left" Height="115" Margin="10,166,0,0" VerticalAlignment="Top" Width="734" Grid.ColumnSpan="2"/>
                     <Label x:Name="label2" Content="Current Wardrobe: " HorizontalAlignment="Center" Margin="10,135,624,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
                     <Button x:Name="saveArticle" Content="Save Article" Grid.Column="1" HorizontalAlignment="Left" Margin="603,33,0,0" VerticalAlignment="Top" Width="90" Height="32"/>
-                    <Button x:Name="printResult" Content="Get Result" HorizontalAlignment="Center" Margin="276,100,337,160" Width="93" Height="33" Grid.Column="1" VerticalAlignment="Center" />
+                    <Button x:Name="printResult" Content="Get Result" HorizontalAlignment="Center" Margin="276,100,337,160" Width="93" Height="33" Grid.Column="1" VerticalAlignment="Center" Click="printResult_Click" />
                 </Grid>
             </TabItem>
             <TabItem Header="Result" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54">
