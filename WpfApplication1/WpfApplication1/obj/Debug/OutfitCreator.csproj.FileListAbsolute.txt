@@ -73,3 +73,5 @@ C:\Users\Jared\Source\Repos\GroupProject464\WpfApplication1\WpfApplication1\obj\
 C:\Users\Jared\Source\Repos\GroupProject464\WpfApplication1\WpfApplication1\bin\Debug\EPPlus.dll
 C:\Users\Jared\Source\Repos\GroupProject464\WpfApplication1\WpfApplication1\bin\Debug\EPPlus.xml
 C:\Users\Jared\Source\Repos\GroupProject464\WpfApplication1\WpfApplication1\obj\Debug\OutfitCreator.csproj.CopyComplete
+C:\Users\nick\Documents\GitHub\GroupProject464\WpfApplication1\WpfApplication1\bin\Debug\EPPlus.dll
+C:\Users\nick\Documents\GitHub\GroupProject464\WpfApplication1\WpfApplication1\bin\Debug\EPPlus.xml

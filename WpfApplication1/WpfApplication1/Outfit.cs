@@ -18,6 +18,11 @@ namespace WpfApplication1
             
         }
 
+        public override string ToString()
+        {
+            return "Shirt: " + Shirt.ToString() + "\nPants: " + Pants.ToString() + "\nShoes: " + Shoes.ToString();
+        }
+
         internal ClothingItem Shirt { get => shirt; set => shirt = value; }
         internal ClothingItem Pants { get => pants; set => pants = value; }
         internal ClothingItem Shoes { get => shoes; set => shoes = value; }

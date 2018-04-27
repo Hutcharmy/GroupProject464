@@ -14,12 +14,14 @@ namespace WpfApplication1
 
         public Creator(Dictionary<String, byte> events)
         {
+            finalOutfits = new Dictionary<string, Outfit>();
             predefineOutfitDict();
             this.events = events;
             wardrobe = new Wardrobe();
         }
         public Creator(Dictionary<String, byte> events, Wardrobe ward)
         {
+            finalOutfits = new Dictionary<string, Outfit>();
             predefineOutfitDict();
             this.events = events;
             this.wardrobe = ward;
@@ -86,7 +88,7 @@ namespace WpfApplication1
             finalOutfits.Add("dayFourteenEventThree", tempOutfit);
         }
 
-        private void GenerateOutfit(Dictionary<String, byte> e = null, Wardrobe ward = null)
+        public Dictionary<String, Outfit> GenerateOutfit(Dictionary<String, byte> e = null, Wardrobe ward = null)
         {
             if (e != null)
             {
@@ -100,21 +102,24 @@ namespace WpfApplication1
             Outfit currentOutfit = null;
 
             //iterate through each event in eventList
-            for (int i = 0; i < events.Count; i++)
+            foreach (var item in events.Keys)
             {
-                //currentOutfit = ChooseOutfit(events[i]);
-                //finalOutfits.Add(events[i], currentOutfit);
+                if (events[item] != 0b0)
+                {
+                    currentOutfit = ChooseOutfit(events[item]);
+                    finalOutfits.Add(item, currentOutfit);
+                }
             }
 
             //print the outfits to the console for the User
-
+            return finalOutfits;
         }
 
         //chooseOutfit(event)
-        public Outfit ChooseOutfit(String eventName)
+        public Outfit ChooseOutfit(byte eventType)
         {
             //Outfit outfit = chooseShirt()
-            Outfit outfit = ChooseShirt(0, eventName);
+            Outfit outfit = ChooseShirt(0, eventType);
 
             //if no outfit can be made for the event 
             if (outfit == null)
@@ -129,12 +134,12 @@ namespace WpfApplication1
             }
         }
 
-        public Outfit ChooseShirt(int index, string eventName)
+        public Outfit ChooseShirt(int index, byte eventType)
         {
             Outfit outfit = null;
 
             //if(no more shirts)
-            if (wardrobe.Shirts[index] == null)
+            if (index >= wardrobe.Shirts.Count)
             {
                 //return nothing
                 return null;
@@ -142,25 +147,25 @@ namespace WpfApplication1
             else
             {
                 //if(passesShirtTests(Article shirt))
-                if (PassesShirtTests(wardrobe.Shirts[index]))
+                if (PassesShirtTests(wardrobe.Shirts[index], eventType))
                 {
-
+                    outfit = new Outfit();
                     outfit.Shirt = wardrobe.Shirts[index];
-
+                    wardrobe.Shirts[index].UseCnt += 1;
                     //call function choosePant(Article shirt)
-                    outfit = ChoosePant(0, eventName, outfit);
+                    outfit = ChoosePant(0, eventType, outfit);
                 }
                 else
                 {
                     //chooseShirt(next index)
-                    outfit = ChooseShirt(index + 1, eventName);
+                    outfit = ChooseShirt(index + 1, eventType);
                 }
 
                 return outfit;
             }
         }
 
-        public Outfit ChoosePant(int index, String eventName, Outfit outfit)
+        public Outfit ChoosePant(int index, byte eventType, Outfit outfit)
         {
             //if(no more pants)
             if (wardrobe.Pants[index] == null)
@@ -171,25 +176,26 @@ namespace WpfApplication1
             else
             {
                 //if(passesPantsTests(Article pant))
-                if (PassesPantsTests(outfit, wardrobe.Pants[index]))
+                if (PassesPantsTests(outfit, wardrobe.Pants[index], eventType))
                 {
 
                     outfit.Pants = wardrobe.Pants[index];
+                    wardrobe.Pants[index].UseCnt +=1;
 
                     //call function chooseShoe(Article shoe)
-                    outfit = ChooseShoe(0, eventName, outfit);
+                    outfit = ChooseShoe(0, eventType, outfit);
                 }
                 else
                 {
                     //chooseShirt(next index)
-                    ChoosePant(index + 1, eventName, outfit);
+                    ChoosePant(index + 1, eventType, outfit);
                 }
 
                 return outfit;
             }
         }
 
-        public Outfit ChooseShoe(int index, String eventName, Outfit outfit)
+        public Outfit ChooseShoe(int index, byte eventType, Outfit outfit)
         {
             //if(no more shoes)
             if (wardrobe.Shoes[index] == null)
@@ -200,10 +206,11 @@ namespace WpfApplication1
             else
             {
                 //if(passesShoesTests(Article shoe))
-                if (PassesShoesTests(outfit, wardrobe.Shoes[index]))
+                if (PassesShoesTests(outfit, wardrobe.Shoes[index], eventType))
                 {
 
                     outfit.Shoes = wardrobe.Shoes[index];
+                    wardrobe.Shoes[index].UseCnt += 1;
 
                     //OUTFIT COMPLETE
                     return outfit;
@@ -211,7 +218,7 @@ namespace WpfApplication1
                 else
                 {
                     //chooseShoe(next index)
-                    ChooseShoe(index + 1, eventName, outfit);
+                    ChooseShoe(index + 1, eventType, outfit);
                 }
 
                 return outfit;
@@ -219,33 +226,23 @@ namespace WpfApplication1
         }
 
         //passesShirtTests(Article shirt)
-        public bool PassesShirtTests(ClothingItem shirt)
+        public bool PassesShirtTests(ClothingItem shirt, byte eventType)
         {
-            if (shirt.UseCnt > 1)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return shirt.UseCnt < 1 && ((shirt.EventType & eventType) > 0);
 
         }
 
         //passesPantTest(Article shirt, Article pant)
-        public bool PassesPantsTests(Outfit outfit, ClothingItem pant)
+        public bool PassesPantsTests(Outfit outfit, ClothingItem pant, byte eventType)
         {
-
-            //if pant.color == shirt.color
             if (pant.Color == outfit.Shirt.Color)
             {
                 return false;
             }
-            //else if ()
-            //{
-            //    //else if shoe.eventType != shirt.eventType != pant.eventType
-            //    return false;
-            //}
+            else if ((pant.EventType & eventType) == 0b0)
+            {
+                return false;
+            }
             else if (pant.UseCnt > 3)
             {
                 return false;
@@ -257,7 +254,7 @@ namespace WpfApplication1
         }
 
         //passesShoeTests(Article shirt, Article pant, Article shoe)
-        public bool PassesShoesTests(Outfit outfit, ClothingItem shoes)
+        public bool PassesShoesTests(Outfit outfit, ClothingItem shoes, byte eventType)
         {
 
             //if shoe.color == blue && shirt.color == black || shoe.color == black && shirt.color == blue)
@@ -266,11 +263,11 @@ namespace WpfApplication1
             {
                 return false;
             }
-            //else if ()
-            //{
-            //    //else if shoe.eventType != shirt.eventType != pant.eventType
-            //    return false;
-            //}
+            else if ((shoes.EventType & eventType) == 0b0)
+            {
+                //else if shoe.eventType != shirt.eventType != pant.eventType
+                return false;
+            }
             else
             {
                 return true;

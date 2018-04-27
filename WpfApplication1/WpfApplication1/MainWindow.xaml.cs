@@ -34,6 +34,8 @@ namespace WpfApplication1
 
         public Dictionary<string, byte> UserEvents { get => events; set => events = value; }
 
+        private Creator alg; 
+
         public MainWindow()
         {
             InitializeComponent();
@@ -216,7 +218,15 @@ namespace WpfApplication1
             Dictionary<String, byte> temp = userEvents;
 
             //call Creator to run the algorithm
-            
+            alg = new Creator(temp, ward);
+            Dictionary<String, Outfit> finalOutfits = alg.GenerateOutfit();
+            foreach (var key in finalOutfits.Keys)
+            {
+                if (finalOutfits[key] != null)
+                {
+                    result.Items.Add(key + ": " + finalOutfits[key].ToString());
+                }
+            }
         }
 
         private void ReadEvents()
@@ -452,16 +462,7 @@ namespace WpfApplication1
 
         private byte GetByteValue(String nameOfEvent)
         {
-            foreach(String eventType in events.Keys)
-            {
-                if (eventType.Equals(nameOfEvent))
-                {
-                    return events[eventType];
-                }
-            }
-
-            //this calls if there is no event 
-            return 0b00000;
+            return events[nameOfEvent];
         }
 
         private void button_Copy_Click(object sender, RoutedEventArgs e)
