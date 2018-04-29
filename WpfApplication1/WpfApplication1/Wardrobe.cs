@@ -16,6 +16,7 @@ namespace WpfApplication1
         private List<ClothingItem> shirts;
         private List<ClothingItem> pants;
         private List<ClothingItem> shoes;
+        private string errorText;
         
 
         public Wardrobe()
@@ -23,6 +24,7 @@ namespace WpfApplication1
             shirts = new List<ClothingItem>();
             pants = new List<ClothingItem>();
             shoes = new List<ClothingItem>();
+            errorText = "";
         }
 
         public Wardrobe(String filename)
@@ -30,7 +32,7 @@ namespace WpfApplication1
             shirts = new List<ClothingItem>();
             pants = new List<ClothingItem>();
             shoes = new List<ClothingItem>();
-
+            errorText = "";
             //Create COM Objects. Create a COM object for everything that is referenced
             Excel.Application xlApp = new Excel.Application();
             Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(filename);
@@ -75,7 +77,7 @@ namespace WpfApplication1
 
                 if (error == false)
                 {
-                    ClothingItem temp = new ClothingItem(getType(type), getColor(color), name);
+                    ClothingItem temp = new ClothingItem(getType(type, i), getColor(color, i), name);
                     if (temp.Category == ClothingCategory.Shirt) {
                         Shirts.Add(temp);
                     }
@@ -87,16 +89,10 @@ namespace WpfApplication1
                     {
                         Shoes.Add(temp);
                     }
-                    else
-                    {
-                        //error time
-                        break;
-                    }
                 }
                 else
                 {
-                    //throw error
-                    break;
+                    throw new InvalidOperationException("Excel file is incorrectly constructed.");
                 }
             }
 
@@ -125,6 +121,7 @@ namespace WpfApplication1
         internal List<ClothingItem> Shirts { get => shirts; }
         internal List<ClothingItem> Pants { get => pants; }
         internal List<ClothingItem> Shoes { get => shoes; }
+        public string ErrorText { get => errorText; }
 
         public void AddItem(ClothingItem newItem)
         {
@@ -150,7 +147,7 @@ namespace WpfApplication1
                 excel.Workbook.Worksheets.Add("outfits");
 
                 //create a new excel file
-                //files are saved in GroupProject464\WpfApplication1\WpfApplication1\bin\Debug\{filename.xlsx}
+                //files are saved in same folder as .exe
                 FileInfo excelFile = new FileInfo(@"" + filename + ".xlsx");
                 excel.SaveAs(excelFile);
 
@@ -237,7 +234,7 @@ namespace WpfApplication1
             }
         }
 
-        private ClothingColor getColor(String color)
+        private ClothingColor getColor(String color, int lineNum = 0)
         {
             if (color.Equals(Enum.GetName(typeof(ClothingColor), ClothingColor.Black)))
             {
@@ -281,12 +278,12 @@ namespace WpfApplication1
             }
             else
             {
-                //could not read the color
+                errorText = "Error at line " + lineNum + " reading color. Please check your wardrobe file";
                 return ClothingColor.Black;
             }
         }
 
-        private ClothingType getType(String type)
+        private ClothingType getType(String type, int lineNum = 0)
         {
             if (type.Equals(Enum.GetName(typeof(ClothingType), ClothingType.AthleticShorts)))
             {
@@ -362,8 +359,7 @@ namespace WpfApplication1
             }
             else
             {
-                //throw some type of error
-                //type was unreadable
+                errorText = "Error at line " + lineNum + " reading color. Please check your wardrobe file";
                 return ClothingType.TShirt;
             }
         }

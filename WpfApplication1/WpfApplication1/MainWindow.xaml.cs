@@ -28,11 +28,14 @@ namespace WpfApplication1
         //property
         public Dictionary<string, byte> Events { get => events; set => events = value; }
 
+        private Dictionary<byte, string> backEvents = new Dictionary<byte, string>();
+
         private Wardrobe ward;
 
         public Dictionary<string, byte> userEvents = new Dictionary<string, byte>();
 
         public Dictionary<string, byte> UserEvents { get => events; set => events = value; }
+        public Dictionary<byte, string> BackEvents { get => backEvents; set => backEvents = value; }
 
         private Creator alg; 
 
@@ -50,6 +53,12 @@ namespace WpfApplication1
             Events.Add("Casual", 0b10);
             Events.Add("Athletic", 0b1);
 
+            BackEvents.Add(0b10000, "Formal");
+            BackEvents.Add(0b1000, "Semiformal");
+            BackEvents.Add(0b100, "Business Casual");
+            BackEvents.Add(0b10, "Casual");
+            BackEvents.Add(0b1, "Athletic");
+
             AddDaysAndEventsToDict();
 
             foreach (var item in Enum.GetValues(typeof(ClothingColor)))
@@ -62,28 +71,8 @@ namespace WpfApplication1
             }
             AddToEventDropdowns();
 
-            string directory = Directory.GetCurrentDirectory().Replace(@"bin\Debug", "");
-            string filepath = System.IO.Path.Combine(directory, @"listClothes1.xlsx");
-            if (System.IO.File.Exists(filepath))
-            {
-                ward = new Wardrobe(filepath);
-                foreach (var item in ward.Shirts)
-                {
-                    articleList.Items.Add(item);
-                }
-                foreach (var item in ward.Pants)
-                {
-                    articleList.Items.Add(item);
-                }
-                foreach (var item in ward.Shoes)
-                {
-                    articleList.Items.Add(item);
-                }
-            }
-            else
-            {
-                ward = new Wardrobe();
-            }
+            ward = new Wardrobe();
+            
         }
 
         public void AddDaysAndEventsToDict()
@@ -228,9 +217,14 @@ namespace WpfApplication1
             {
                 if (finalOutfits[key] != null)
                 {
-                    result.Items.Add(key + ": " + finalOutfits[key].ToString());
+                    result.Items.Add("--" + key + ": " + backEvents[temp[key]] + "--\n" + finalOutfits[key].ToString());
+                }
+                else if (temp[key] != 0b0)
+                {
+                    result.Items.Add("--" + key + ": " + backEvents[temp[key]] + "--\nAn Outfit could not be made for this day");
                 }
             }
+            tabControl.SelectedIndex = tabControl.SelectedIndex + 1;
         }
 
         private void ReadEvents()
@@ -473,6 +467,7 @@ namespace WpfApplication1
         {
             ward.StoreWardrobe(outputFileName.Text);
             outputError.Content = "File was saved";
+            
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -502,7 +497,14 @@ namespace WpfApplication1
                 ward = new Wardrobe();
             }
 
-            intputError.Content = "File was brought in";
+            if (ward.ErrorText != "")
+            {
+                intputError.Content = ward.ErrorText;
+            }
+            else
+            {
+                intputError.Content = "File was brought in";
+            }
         }
 
         private void saveArticle_Click(object sender, RoutedEventArgs e)

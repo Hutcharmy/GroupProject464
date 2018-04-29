@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -100,8 +101,9 @@ namespace WpfApplication1
             }
             Dictionary<String, Outfit> finalOutfits = new Dictionary<String, Outfit>();
             Outfit currentOutfit = null;
+            //Stopwatch time = new Stopwatch();
+            //time.Start();
             this.wardrobe.Shuffle();
-            //iterate through each event in eventList
             foreach (var item in events.Keys)
             {
                 if (events[item] != 0b0)
@@ -110,26 +112,21 @@ namespace WpfApplication1
                     finalOutfits.Add(item, currentOutfit);
                 }
             }
-
-            //print the outfits to the console for the User
+            //time.Stop();
+            //Console.WriteLine(time.ElapsedMilliseconds);
             return finalOutfits;
         }
-
-        //chooseOutfit(event)
+        
         public Outfit ChooseOutfit(byte eventType)
         {
-            //Outfit outfit = chooseShirt()
             Outfit outfit = ChooseShirt(0, eventType);
-
-            //if no outfit can be made for the event 
+ 
             if (outfit == null)
             {
-                //return "No outfit could be made for this event"
                 return null;
             }
             else
             {
-                //return outfit
                 return outfit;
             }
         }
@@ -137,21 +134,17 @@ namespace WpfApplication1
         public Outfit ChooseShirt(int index, byte eventType)
         {
             Outfit outfit = null;
-
-            //if(no more shirts)
+            
             if (index >= wardrobe.Shirts.Count)
             {
-                //return nothing
                 return null;
             }
             else
             {
-                //if(passesShirtTests(Article shirt))
                 if (PassesShirtTests(wardrobe.Shirts[index], eventType))
                 {
                     outfit = new Outfit();
                     outfit.Shirt = wardrobe.Shirts[index];
-                    //call function choosePant(Article shirt)
                     outfit = ChoosePant(0, eventType, outfit);
                     if (outfit.Pants != null)
                     {
@@ -162,12 +155,11 @@ namespace WpfApplication1
                     }
                     else
                     {
-                        ChooseShirt(index + 1, eventType);
+                        outfit = ChooseShirt(index + 1, eventType);
                     }
                 }
                 else
                 {
-                    //chooseShirt(next index)
                     outfit = ChooseShirt(index + 1, eventType);
                 }
 
@@ -177,21 +169,17 @@ namespace WpfApplication1
 
         public Outfit ChoosePant(int index, byte eventType, Outfit outfit)
         {
-            //if(no more pants)
-            if (wardrobe.Pants[index] == null)
+            if (index >= wardrobe.Pants.Count)
             {
-                //return nothing
-                return null;
+                return outfit;
             }
             else
             {
-                //if(passesPantsTests(Article pant))
                 if (PassesPantsTests(outfit, wardrobe.Pants[index], eventType))
                 {
 
                     outfit.Pants = wardrobe.Pants[index];
-
-                    //call function chooseShoe(Article shoe)
+                    
                     outfit = ChooseShoe(0, eventType, outfit);
                     if (outfit.Shoes != null)
                     {
@@ -202,14 +190,12 @@ namespace WpfApplication1
                     }
                     else
                     {
-                        //chooseShirt(next index)
-                        ChoosePant(index + 1, eventType, outfit);
+                        outfit = ChoosePant(index + 1, eventType, outfit);
                     }
                 }
                 else
                 {
-                    //chooseShirt(next index)
-                    ChoosePant(index + 1, eventType, outfit);
+                    outfit = ChoosePant(index + 1, eventType, outfit);
                 }
 
                 return outfit;
@@ -218,15 +204,12 @@ namespace WpfApplication1
 
         public Outfit ChooseShoe(int index, byte eventType, Outfit outfit)
         {
-            //if(no more shoes)
-            if (wardrobe.Shoes[index] == null)
+            if (index >= wardrobe.Shoes.Count)
             {
-                //return nothing
-                return null;
+                return outfit;
             }
             else
             {
-                //if(passesShoesTests(Article shoe))
                 if (PassesShoesTests(outfit, wardrobe.Shoes[index], eventType))
                 {
                     outfit.Shoes = wardrobe.Shoes[index];
@@ -237,22 +220,19 @@ namespace WpfApplication1
                 }
                 else
                 {
-                    //chooseShoe(next index)
-                    ChooseShoe(index + 1, eventType, outfit);
+                    outfit = ChooseShoe(index + 1, eventType, outfit);
                 }
 
                 return outfit;
             }
         }
-
-        //passesShirtTests(Article shirt)
+        
         public bool PassesShirtTests(ClothingItem shirt, byte eventType)
         {
             return shirt.UseCnt < 1 && ((shirt.EventType & eventType) > 0);
 
         }
-
-        //passesPantTest(Article shirt, Article pant)
+        
         public bool PassesPantsTests(Outfit outfit, ClothingItem pant, byte eventType)
         {
             if (pant.Color == outfit.Shirt.Color)
@@ -272,12 +252,9 @@ namespace WpfApplication1
                 return true;
             }
         }
-
-        //passesShoeTests(Article shirt, Article pant, Article shoe)
+        
         public bool PassesShoesTests(Outfit outfit, ClothingItem shoes, byte eventType)
         {
-
-            //if shoe.color == blue && shirt.color == black || shoe.color == black && shirt.color == blue)
             if ((shoes.Color.ToString().Equals("blue") && outfit.Shirt.Color.ToString().Equals("black")) ||
                     (shoes.Color.ToString().Equals("black") && outfit.Shirt.Color.ToString().Equals("blue")))
             {
@@ -285,7 +262,6 @@ namespace WpfApplication1
             }
             else if ((shoes.EventType & eventType) == 0b0)
             {
-                //else if shoe.eventType != shirt.eventType != pant.eventType
                 return false;
             }
             else
