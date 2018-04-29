@@ -100,7 +100,7 @@ namespace WpfApplication1
             }
             Dictionary<String, Outfit> finalOutfits = new Dictionary<String, Outfit>();
             Outfit currentOutfit = null;
-
+            this.wardrobe.Shuffle();
             //iterate through each event in eventList
             foreach (var item in events.Keys)
             {
@@ -151,9 +151,19 @@ namespace WpfApplication1
                 {
                     outfit = new Outfit();
                     outfit.Shirt = wardrobe.Shirts[index];
-                    wardrobe.Shirts[index].UseCnt += 1;
                     //call function choosePant(Article shirt)
                     outfit = ChoosePant(0, eventType, outfit);
+                    if (outfit.Pants != null)
+                    {
+                        wardrobe.Shirts[index].UseCnt += 1;
+                        var temp = wardrobe.Shirts[index];
+                        wardrobe.Shirts.RemoveAt(index);
+                        wardrobe.Shirts.Add(temp);
+                    }
+                    else
+                    {
+                        ChooseShirt(index + 1, eventType);
+                    }
                 }
                 else
                 {
@@ -180,10 +190,21 @@ namespace WpfApplication1
                 {
 
                     outfit.Pants = wardrobe.Pants[index];
-                    wardrobe.Pants[index].UseCnt +=1;
 
                     //call function chooseShoe(Article shoe)
                     outfit = ChooseShoe(0, eventType, outfit);
+                    if (outfit.Shoes != null)
+                    {
+                        wardrobe.Pants[index].UseCnt += 1;
+                        var temp = wardrobe.Pants[index];
+                        wardrobe.Pants.RemoveAt(index);
+                        wardrobe.Pants.Add(temp);
+                    }
+                    else
+                    {
+                        //chooseShirt(next index)
+                        ChoosePant(index + 1, eventType, outfit);
+                    }
                 }
                 else
                 {
@@ -208,12 +229,11 @@ namespace WpfApplication1
                 //if(passesShoesTests(Article shoe))
                 if (PassesShoesTests(outfit, wardrobe.Shoes[index], eventType))
                 {
-
                     outfit.Shoes = wardrobe.Shoes[index];
                     wardrobe.Shoes[index].UseCnt += 1;
-
-                    //OUTFIT COMPLETE
-                    return outfit;
+                    var temp = wardrobe.Shoes[index];
+                    wardrobe.Shoes.RemoveAt(index);
+                    wardrobe.Shoes.Add(temp);
                 }
                 else
                 {

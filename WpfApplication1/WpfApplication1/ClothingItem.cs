@@ -44,12 +44,12 @@ namespace WpfApplication1
             ClothingType.DressPants, ClothingType.Khakis, ClothingType.DressShoes, ClothingType.Heels, ClothingType.Flats
         };
         public List<ClothingType> BCClothes = new List<ClothingType> {
-            ClothingType.DressShirt, ClothingType.ButtonDown, ClothingType.Polo, ClothingType.Blouse, ClothingType.Dress,
-            ClothingType.DressPants, ClothingType.DressShoes, ClothingType.Flats, ClothingType.Heels, ClothingType.Jeans, ClothingType.Khakis
+           ClothingType.ButtonDown, ClothingType.Polo, ClothingType.Blouse, ClothingType.Dress,
+           ClothingType.DressShoes, ClothingType.Flats, ClothingType.Heels, ClothingType.Jeans, ClothingType.Khakis
         };
         public List<ClothingType> CasualClothes = new List<ClothingType> {
-            ClothingType.ButtonDown, ClothingType.Polo, ClothingType.AthleticShorts, ClothingType.CasualPants, ClothingType.CasualShorts,
-            ClothingType.Flats, ClothingType.Jeans, ClothingType.Khakis, ClothingType.Sandals, ClothingType.TennisShoes, ClothingType.TShirt
+            ClothingType.Polo, ClothingType.AthleticShorts, ClothingType.CasualPants, ClothingType.CasualShorts,
+            ClothingType.Flats, ClothingType.Jeans, ClothingType.Sandals, ClothingType.TennisShoes, ClothingType.TShirt
         };
         public List<ClothingType> AthleticClothes = new List<ClothingType> {
             ClothingType.TShirt, ClothingType.AthleticShorts, ClothingType.TennisShoes

@@ -212,6 +212,10 @@ namespace WpfApplication1
 
         private void printResult_Click(object sender, RoutedEventArgs e)
         {
+            if (result.Items.Count > 0)
+            {
+                result.Items.Clear();
+            }
             //search through each of the combo boxes and add them to the dictionary
             ReadEvents();
 

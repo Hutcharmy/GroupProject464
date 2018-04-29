@@ -367,5 +367,12 @@ namespace WpfApplication1
                 return ClothingType.TShirt;
             }
         }
+        public void Shuffle()
+        {
+            var rnd = new Random();
+            this.shirts = Shirts.OrderBy(item => rnd.Next()).ToList();
+            this.pants = Pants.OrderBy(item => rnd.Next()).ToList();
+            this.shoes = Shoes.OrderBy(item => rnd.Next()).ToList();
+        }
     }
 }
